@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {{>headerlinks}}
+
+<body>
+   {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid main_header" >
+        <div class="row">
+           <div class="col-md-10 col-12 mx-auto">
+               <div class="row">
+                   <!-- left side div -->
+                   <div class="col-md-12 col-12 main_header_left align-items-center">
+                    <figure class="errimg">
+                        <img src="Saved Pictures/img6.jpg" alt="Image unable to load" class="img-fluid" title="Holmes About">
+                    </figure>
+                
+                     <p> Welcome to HolmesWeather App </p>
+                     <h1>{{errormsg}}</h1>
+                     <a href="/"><button> Back To Home</button></a>
+                    </div>
+                   <!-- right side div -->
+                 
+               </div>
+           </div>
+        </div>
+    </div>
+    <!-- footer code -->
+   {{>footer}}
+</body>
+</html>

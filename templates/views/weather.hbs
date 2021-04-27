@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>headerlinks}}
+
+<body>
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid main_weather">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityName" placeholder="Enter a City Name/PIN " autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn">
+                    </form>
+                </div>
+
+                <div class="row">
+                    <!-- left side div -->
+                    <div class="col-md-5 col-12 tempInformation_left">
+                        <div class="top_layer">
+                            <p id="day">Thursday</p>
+                            <p id="today_date">April 22</p>
+                        </div>
+                        <div class="main_layer">
+                            <p id="city_name">Current Temperature : </p>
+                            <div class="middle_layer data_hide">
+                                <p id="temp"><span id="temp_real_val">0 </span><sup> o</sup>C</p>
+                                <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- right side div -->
+                    <div class="col-md-5 col-12 tempInformation_right">
+                        <div class="main_layer_right data_hide">
+                            <p style="color: #e3eb79">Forecast for next 6 days : </p>
+                            <p><span id="day1">Thursday,</span>
+                                {{!-- <span id="today_date1">April 22 </span> --}}
+                                <span id="temp1"><span id="temp_real_val1">0 </span><sup>
+                                        o</sup>C</span>
+                            </p>
+
+                            <p><span id="day2">Thursday,</span>
+                                {{!-- <span id="today_date2">April 22</span> --}}
+                                <span id="temp2"><span id="temp_real_val2">0 </span><sup>
+                                        o</sup>C</span>
+                            </p>
+
+                            <p><span id="day3">Thursday,</span>
+                                {{!-- <span id="today_date3">April 22</span> --}}
+                                <span id="temp3"><span id="temp_real_val3">0
+                                    </span><sup> o</sup>C</span>
+                            </p>
+
+                            <p><span id="day4">Thursday,</span>
+                                {{!-- <span id="today_date4">April 22</span> --}}
+                                <span id="temp4"><span id="temp_real_val4">0
+                                    </span><sup> o</sup>C</span>
+                            </p>
+
+                            <p><span id="day5">Thursday,</span>
+                                {{!-- <span id="today_date5">April 22</span> --}}
+                                <span id="temp5"><span id="temp_real_val5">0
+                                    </span><sup> o</sup>C</span>
+                            </p>
+
+                            <p><span id="day6">Thursday,</span>
+                                {{!-- <span id="today_date6">April 22</span> --}}
+                                <span id="temp6"><span id="temp_real_val6">0
+                                    </span><sup> o</sup>C</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer code -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+        const day = document.getElementById('day');
+        const today_date = document.getElementById('today_date');
+
+        var options = { weekday: 'long', day: 'numeric', month: 'long' };
+        var date_info = new Date().toLocaleDateString('en-US', options);
+        day.innerText = date_info.split(',')[0];
+        today_date.innerText = date_info.split(',')[1];
+    </script>
+    <script>
+        var d = new Date();
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+
+        const day1 = document.getElementById("day1");
+        const day2 = document.getElementById("day2");
+        const day3 = document.getElementById("day3");
+        const day4 = document.getElementById("day4");
+        const day5 = document.getElementById("day5");
+        const day6 = document.getElementById("day6");
+
+        day1.innerText = weekday[(d.getDay() + 1) % 7] + " :";
+        day2.innerText = weekday[(d.getDay() + 2) % 7] + " :";
+        day3.innerText = weekday[(d.getDay() + 3) % 7] + " :";
+        day4.innerText = weekday[(d.getDay() + 4) % 7] + " :";
+        day5.innerText = weekday[(d.getDay() + 5) % 7] + " :";
+        day6.innerText = weekday[(d.getDay() + 6) % 7] + " :";
+    </script>
+</body>
+
+</html>
